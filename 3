@@ -1,0 +1,33 @@
+import React from 'react';
+import SplitText from './SplitText';
+
+function App() {
+  const handleAnimationComplete = () => {
+    console.log('All letters animated!');
+  };
+
+  return (
+    <div style={{ padding: '100px', textAlign: 'center' }}>
+      <h1>Scroll down</h1>
+      <div style={{ height: '70vh' }} />
+      <SplitText
+        text="Testing GSAP + ScrollTrigger + SplitText"
+        className="my‑splittext"
+        delay={100}
+        duration={0.6}
+        ease="power3.out"
+        splitType="chars"
+        from={{ opacity: 0, y: 50 }}
+        to={{ opacity: 1, y: 0 }}
+        threshold={0.2}
+        rootMargin="-50px"
+        textAlign="center"
+        tag="h2"
+        onLetterAnimationComplete={handleAnimationComplete}
+      />
+      <div style={{ height: '70vh' }} />
+    </div>
+  );
+}
+
+export default App;
